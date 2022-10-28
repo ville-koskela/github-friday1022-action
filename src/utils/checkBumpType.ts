@@ -12,6 +12,7 @@ export const getRepositoryInfo = (): RepositoryInfo => {
   try {
     const event = JSON.parse(readFileSync(path, { encoding: 'utf-8' }));
     info(event.commits[0])
+    info(event.head_commit)
     return {
       headMessage: event.commits[0].message,
     };

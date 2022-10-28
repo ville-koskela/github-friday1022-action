@@ -38,10 +38,14 @@ jobs:
       - name: start working on dev
         run: |
           git clone "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/ville-koskela/github-friday1022-action.git"
+      - name: fetch
+        run: |
           git fetch
+      - name: checkout develop
+        run: |
           cd github-friday1022-action
-          git checkout origin/develop
-          git pull
+          git checkout origin/develop --
+          git pull origin develop
       - name: install dependencies
         run: |
           npm ci

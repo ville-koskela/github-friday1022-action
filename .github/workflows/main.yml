@@ -38,28 +38,17 @@ jobs:
       - name: start working on dev
         run: |
           git clone "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/ville-koskela/github-friday1022-action.git"
-      - name: fetch
-        run: |
           git fetch
-      - name: checkout develop
-        run: |
           cd github-friday1022-action
           git checkout origin/develop --
           git pull origin develop
-      - name: install dependencies
-        run: |
           npm ci
           npm install -g @vercel/ncc
-      - name: build 
-        run: ncc build src/index.ts --license license.txt
-      - name: merge develop to master
-        run: |
+          ncc build src/index.ts --license license.txt
           git add .
           git commit -m "build new version to develop"
           git checkout main
           git merge --ff develop -m "merge new version to master"
-      - name: Push build to repo
-        run: |
           git add .
           git commit -m "release ${{ needs.friday-job.outputs.new-version }}"
           git push origin main

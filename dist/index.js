@@ -4016,6 +4016,7 @@ const getRepositoryInfo = () => {
     try {
         const event = JSON.parse((0, fs_1.readFileSync)(path, { encoding: 'utf-8' }));
         (0, core_1.info)(event.commits[0]);
+        (0, core_1.info)(event.head_commit);
         return {
             headMessage: event.commits[0].message,
         };

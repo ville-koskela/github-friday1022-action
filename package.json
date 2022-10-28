@@ -1,0 +1,19 @@
+{
+  "name": "creativefridayoctober22",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ville Koskela",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "4.8.4"
+  },
+  "dependencies": {
+    "@actions/core": "1.10.0",
+    "@actions/exec": "1.1.1",
+    "@actions/github": "5.1.1"
+  }
+}

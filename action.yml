@@ -1,0 +1,15 @@
+name: 'My CreativeFriday Action'
+description: 'Bumps version and creates tag for repository'
+inputs:
+  bump-type: 
+    description: 'Input type:'
+    required: false
+    default: 'patch'
+
+outputs:
+  success:
+    description: 'tells if run succeeded'
+
+runs:
+  using: 'node16'
+  main: 'dist/index.js'

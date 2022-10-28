@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: Ask input
         id: friday
-        uses: ville-koskela/github-friday1022-action
+        uses: ville-koskela/github-friday1022-action@8ddece45d01b94b7722fd93eff6f2a970ccb46ab
         with:
           bump-type: patch
           username: ville-koskela

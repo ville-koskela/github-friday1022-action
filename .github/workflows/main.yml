@@ -37,7 +37,7 @@ jobs:
           npm install -g @vercel/ncc
       - name: pull develop
         run: |
-          git merge --ff origin/develop
+          git merge origin/develop
       - name: build 
         run: ncc build src/index.ts --license license.txt
       - name: Setup Git

@@ -3977,10 +3977,11 @@ const run = () => __awaiter(void 0, void 0, void 0, function* () {
     const repoInfo = (0, checkBumpType_1.getRepositoryInfo)();
     const bumpType = (0, checkBumpType_1.checkBumpType)(repoInfo.headMessage);
     const username = (0, core_1.getInput)('username');
-    const email = (0, core_1.getInput)('email');
+    // const email = getInput('email');
+    console.log('username: ', username);
     yield (0, exec_1.exec)('npm version', [bumpType]);
-    yield (0, exec_1.exec)('git config', ['--global', 'user.name', username]);
-    yield (0, exec_1.exec)('git config', ['--global', 'user.email', email]);
+    yield (0, exec_1.exec)('git config', ['--global', 'user.name', 'ville-koskela']);
+    yield (0, exec_1.exec)('git config', ['--global', 'user.email', 'noreply@example.com']);
     yield (0, exec_1.exec)('git push');
     yield (0, exec_1.exec)('git push', ['--follow-tags']);
     (0, core_1.setOutput)('success', true);

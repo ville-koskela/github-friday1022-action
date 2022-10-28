@@ -1,7 +1,23 @@
 on: [push]
 
 jobs:
+
+  friday-job:
+    runs-on: ubuntu-latest
+    name: Hello Friday!
+    outputs:
+      new-version: ${{ steps.friday.outputs.version }}
+    steps:
+      - name: Ask input
+        id: friday
+        uses: ville-koskela/github-friday1022-action@v1.1.0
+        with:
+          bump-type: patch
+      - name: check output
+        run: echo "success was ${{ steps.friday.outputs.success }}"
+
   build:
+    needs: friday-job
     runs-on: ubuntu-latest
     steps:
       - name: Check out source
@@ -20,22 +36,9 @@ jobs:
       - name: Setup Git
         run: |
           git config user.name 'Ville Koskela'
-          git config user.email 'ville.koskela@terveystalo.com'
+          git config user.email '${{ secrets.EMAIL }}'
       - name: Push build to repo
         run: |
           git add .
-          git commit -m "new release build"
+          git commit -m "release ${{ needs.friday-job.outputs.new-version }}"
           git push origin main
-
-  friday-job:
-    needs: build
-    runs-on: ubuntu-latest
-    name: Hello Friday!
-    steps:
-      - name: Ask input
-        id: friday
-        uses: ville-koskela/github-friday1022-action@v1.1.0
-        with:
-          bump-type: patch
-      - name: check output
-        run: echo "success was ${{ steps.friday.outputs.success }}"

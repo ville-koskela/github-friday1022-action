@@ -2826,7 +2826,6 @@ const bumpType = (0, core_1.getInput)('bump-type');
 console.log('bumpType', bumpType);
 (0, core_1.setOutput)('success', true);
 (0, core_1.setOutput)('newversion', '1.1.0');
-console.log('done!');
 
 })();
 

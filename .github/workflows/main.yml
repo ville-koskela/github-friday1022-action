@@ -44,7 +44,7 @@ jobs:
           npm install -g @vercel/ncc
           ncc build src/index.ts --license license.txt
           git add .
-          git commit -m "build version ${{ needs.friday-job.outputs.version }}
+          git commit -m "build version ${{ needs.friday-job.outputs.version }}"
           git checkout main
           git merge --ff develop -m "merge new version to master"
           git push origin main

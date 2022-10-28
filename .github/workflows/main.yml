@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Ask input
         id: friday
-        uses: ville-koskela/github-friday1022-action@d8991a3202789889b6822cb3950a802354428401
+        uses: ville-koskela/github-friday1022-action@99a58deb1b48c83cbe5b02a8962b5177f838f9fd
       - name: check output
         run: |
           echo "success was ${{ steps.friday.outputs.success }}"

@@ -1,4 +1,4 @@
-import { getInput, setOutput } from '@actions/core';
+import { getInput, setOutput, info } from '@actions/core';
 import { exec } from '@actions/exec';
 import { checkBumpType, getRepositoryInfo } from './utils/checkBumpType';
 
@@ -7,12 +7,13 @@ const run = async (): Promise<void> => {
   const bumpType = checkBumpType(repoInfo.headMessage);
   const username = getInput('username');
   // const email = getInput('email');
-  console.log('username: ', username)
+  info(`username: ${username}`)
   await exec('git config', ['--global', 'user.name', 'ville-koskela']);
   await exec('git config', ['--global', 'user.email', 'noreply@example.com']);
-  await exec('npm version', [bumpType]);
+  info(`bumping with ${bumpType}`)
+  await exec('npm version', [bumpType, '--force']);
   await exec('git push');
-  await exec('git push', ['--follow-tags']);
+  await exec('git push', ['--tags']);
   setOutput('success', true);
 };
 

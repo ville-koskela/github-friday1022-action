@@ -10,7 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Hello Friday!
     outputs:
-      newversion: ${{ steps.friday.outputs.newversion }}
+      # newversion: ${{ steps.friday.outputs.newversion }}
+      newversion: '1.1.0'
     steps:
       - name: Ask input
         id: friday

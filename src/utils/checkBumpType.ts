@@ -29,6 +29,7 @@ export const getRepositoryInfo = (): RepositoryInfo => {
 };
 
 export const checkBumpType = (message: string): BumpType => {
+  info(`message was: ${message}`)
   if (message.toLowerCase().includes('#major')) {
     return 'major';
   } else if (message.toLowerCase().includes('#minor')) {

@@ -16,7 +16,7 @@ jobs:
           npm ci
           npm install -g @vercel/ncc
       - name: build 
-        run: ncc build src/index.ts --licence licence.txt
+        run: ncc build src/index.ts --license license.txt
       - name: Setup Git
         run: |
           git config user.name 'Ville Koskela'

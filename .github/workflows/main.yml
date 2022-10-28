@@ -1,7 +1,34 @@
 on: [push]
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v3
+      - name: Setup 'node16'
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'npm'
+      - name: install dependencies
+        run: |
+          npm ci
+          npm install -g @vercel/ncc
+      - name: build 
+        run: ncc build src/index.ts --licence licence.txt
+      - name: Setup Git
+        run: |
+          git config user.name 'Ville Koskela'
+          git config user.email 'ville.koskela@terveystalo.com'
+      - name: Push build to repo
+        run: |
+          git add .
+          git commit -m "new release build"
+          git push origin main
+
   friday-job:
+    needs: build
     runs-on: ubuntu-latest
     name: Hello Friday!
     steps:

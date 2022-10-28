@@ -11,4 +11,4 @@ jobs:
         with:
           bump-type: patch
       - name: check output
-        run: echo "success was: ${{ steps.friday.outputs.success }}"
+        run: echo "success was ${{ steps.friday.outputs.success }}"

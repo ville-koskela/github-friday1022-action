@@ -38,7 +38,7 @@ jobs:
           git clone "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/ville-koskela/github-friday1022-action.git"
           git fetch
           cd github-friday1022-action
-          git checkout origin/develop --
+          git checkout develop --
           git pull origin develop
           npm ci
           npm install -g @vercel/ncc

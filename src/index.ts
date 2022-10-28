@@ -10,7 +10,7 @@ const run = async (): Promise<void> => {
   await exec('git config', ['--global', 'user.name', 'Ville Koskela']);
   await exec('git config', ['--global', 'user.email', 'noreply@example.com']);
   info(`bumping with ${bumpType}`)
-  await exec('npm version', [bumpType]);
+  await exec('npm version', ['minor']);
   await exec('git push');
   await exec('git push', ['--follow-tags']);
   setOutput('success', true);

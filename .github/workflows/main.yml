@@ -1,0 +1,14 @@
+on: [push]
+
+jobs:
+  friday-job:
+    runs-on: ubuntu-latest
+    name: Hello Friday!
+    steps:
+      - name: Ask input
+        id: friday
+        uses: ville-koskela/github-friday1022-action@v1.1.0
+        with:
+          bump-type: patch
+      - name: check output
+        run: echo "success was: ${{ steps.friday.outputs.success }}"

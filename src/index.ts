@@ -6,7 +6,6 @@ const run = async (): Promise<void> => {
   const repoInfo = getRepositoryInfo();
   const bumpType = checkBumpType(repoInfo.headMessage);
   const username = getInput('username');
-  // const email = getInput('email');
   info(`username: ${username}`)
   await exec('git config', ['--global', 'user.name', 'ville-koskela']);
   await exec('git config', ['--global', 'user.email', 'noreply@example.com']);

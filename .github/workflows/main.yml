@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Hello Friday!
     outputs:
-      newversion: ${{ steps.friday.outputs.version }}
+      newversion: ${{ steps.friday.outputs.newversion }}
     steps:
       - name: Ask input
         id: friday
@@ -20,7 +20,9 @@ jobs:
       - name: check output
         run: |
           echo "success was ${{ steps.friday.outputs.success }}"
-          echo "new version is ${{ steps.friday.outputs.version }}"
+      - name: check version
+        run: |
+          echo "new version is ${{ steps.friday.outputs.newversion }}"
 
   build:
     needs: fridayjob
@@ -33,6 +35,9 @@ jobs:
         with:
           node-version: '16'
           cache: 'npm'
+      - name: echo version
+        run: |
+          echo "new versions is ${{ needs.fridayjob.outputs.newversion }}"
       - name: Setup Git
         run: |
           git config --global user.name 'Ville Koskela'

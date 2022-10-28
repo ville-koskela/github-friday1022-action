@@ -18,10 +18,6 @@ jobs:
       - name: Ask input
         id: friday
         uses: ville-koskela/github-friday1022-action@8ddece45d01b94b7722fd93eff6f2a970ccb46ab
-        with:
-          bump-type: patch
-          username: ville-koskela
-          email: ${{ secrets.EMAIL }}
       - name: check output
         run: |
           echo "success was ${{ steps.friday.outputs.success }}"

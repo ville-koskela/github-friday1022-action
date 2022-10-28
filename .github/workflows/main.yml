@@ -1,4 +1,8 @@
-on: [push]
+name: CI/CD
+
+on:
+  push:
+    branches: [main]
 
 jobs:
 

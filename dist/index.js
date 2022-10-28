@@ -2824,8 +2824,8 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core_1 = __nccwpck_require__(391);
 const bumpType = (0, core_1.getInput)('bump-type');
 console.log('bumpType', bumpType);
-(0, core_1.setOutput)('version', '1.1.0');
 (0, core_1.setOutput)('success', true);
+(0, core_1.setOutput)('newversion', '1.1.0');
 console.log('done!');
 
 })();

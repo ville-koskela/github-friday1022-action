@@ -40,7 +40,7 @@ jobs:
           git clone "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/ville-koskela/github-friday1022-action.git"
           git fetch
           cd github-friday1022-action
-          git checkout develop
+          git checkout origin/develop
           git pull
       - name: install dependencies
         run: |

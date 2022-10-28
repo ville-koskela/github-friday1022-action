@@ -1,6 +1,6 @@
 import { BumpType, RepositoryInfo } from '../types';
 import { readFileSync } from 'fs';
-import { error } from '@actions/core';
+import { error, info } from '@actions/core';
 
 export const getRepositoryInfo = (): RepositoryInfo => {
   const path: string = process.env.GITHUB_EVENT_PATH || '';
@@ -11,6 +11,7 @@ export const getRepositoryInfo = (): RepositoryInfo => {
   }
   try {
     const event = JSON.parse(readFileSync(path, { encoding: 'utf-8' }));
+    info(event.commits[0])
     return {
       headMessage: event.commits[0].message,
     };

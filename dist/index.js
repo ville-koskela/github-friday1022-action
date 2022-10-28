@@ -4036,6 +4036,7 @@ const getRepositoryInfo = () => {
 };
 exports.getRepositoryInfo = getRepositoryInfo;
 const checkBumpType = (message) => {
+    (0, core_1.info)(`message was: ${message}`);
     if (message.toLowerCase().includes('#major')) {
         return 'major';
     }

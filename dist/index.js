@@ -2825,6 +2825,7 @@ const core_1 = __nccwpck_require__(276);
 const bumpType = (0, core_1.getInput)('bump-type');
 console.log('bumpType', bumpType);
 console.log('--- new version published ---');
+(0, core_1.setOutput)('version', '1.0.0');
 (0, core_1.setOutput)('success', true);
 
 })();

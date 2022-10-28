@@ -35,8 +35,6 @@ jobs:
         run: |
           git config user.name 'Ville Koskela'
           git config user.email '${{ secrets.EMAIL }}'
-      - name: start working on dev
-        run: |
           git clone "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/ville-koskela/github-friday1022-action.git"
           git fetch
           cd github-friday1022-action
